@@ -5,3 +5,6 @@ for job in $(cat joblist.txt); do echo -e "run job=$job level=Incremental\nyes" 
 echo "show jobs" | bconsole  | grep -E "vast" | awk '{print $3}'  | uniq  | tr -d '"'
 # with matching name/sufffix/prefix
 echo "show jobs" | bconsole  | grep -E "name/suffix/prefix" | awk '{print $3}'  | uniq  | tr -d '"'
+
+## Disable volume
+echo "update volstatus=disabled volume=volname-0000" | bconsole
