@@ -8,3 +8,6 @@ echo "show jobs" | bconsole  | grep -E "name/suffix/prefix" | awk '{print $3}'  
 
 ## Disable volume
 echo "update volstatus=disabled volume=volname-0000" | bconsole
+
+## Finding vol names from s3cmd
+cat ~/20260109_objects_IRB_00127960.txt | grep 104857600 | awk '{ sub("^s3://IRB_00127960-s3cmd/", "", $4); print substr($4, 1, length($4)-5) }' | uniq
